@@ -16,6 +16,14 @@ It works in one of the following ways.
 
 ## Screenshot
 
+*Administrator > Server status*
+
+![charts](https://cloud.githubusercontent.com/assets/943541/26574113/1e2c787c-455b-11e7-845b-4a83dedb9077.png)
+
+*Administrator > Plugins > Configure*
+
+![settings](https://cloud.githubusercontent.com/assets/943541/26574119/24265072-455b-11e7-9ef5-b6f2a88aa3c3.png)
+
 ## Unimplemented
 
 * Sending Alert Mail
