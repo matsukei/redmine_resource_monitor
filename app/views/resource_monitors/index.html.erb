@@ -1,0 +1,38 @@
+<% content_for :header_tags do %>
+  <%= include_gon %>
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-1.5.0.min.js"></script>
+  <style media="print">
+    div.page-break {
+      page-break-before: always;
+    }
+  </style>
+<% end %>
+
+<% resource_monitors_path = url_for(controller: :resource_monitors, action: :index) %>
+<div class="splitcontent">
+  <%= form_tag(resource_monitors_path, method: :get) do %>
+    <fieldset>
+      <legend><%= l(:label_filter_plural) %></legend>
+
+      <label for='display_date'><%= l(:field_display_date) %><span class="required">*</span>:</label>
+      <%= date_field_tag 'display_date', @display_time.to_date.to_s, size: 10, required: true %>
+      <%= calendar_for('display_date') %>
+
+      <%= submit_tag l(:button_apply), class: "small", name: nil %>
+      <%= link_to l(:button_clear), resource_monitors_path, class: 'icon icon-reload' %>
+
+    </fieldset>
+  <% end %>
+</div>
+
+<% @settings[:visibled_resource_charts].each do |chart_name| %>
+  <div class="splitcontent page-break" id="<%= chart_name %>"></div>
+  <%= javascript_tag do %>
+    var chart = gon.<%= chart_name %>;
+    Plotly.newPlot('<%= chart_name %>', chart.data, chart.layout, chart.option);
+  <% end %>
+<% end %>
+
+<% other_formats_links do |f| %>
+  <%= f.link_to 'CSV', :url => params %>
+<% end %>

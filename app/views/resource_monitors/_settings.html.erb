@@ -1,0 +1,44 @@
+
+<fieldset>
+  <legend><%= l(:label_visibled_resource_charts) %></legend>
+
+  <% @plugin.settings[:default][:visibled_resource_charts].each do |chart_name| %>
+    <p>
+      <label><%= l("label_#{chart_name}".to_sym) %>:</label>
+      <%= check_box_tag 'settings[visibled_resource_charts][]',
+          chart_name, @settings[:visibled_resource_charts].include?(chart_name) %>
+    </p>
+  <% end %>
+  <%= hidden_field_tag('settings[visibled_resource_charts][]', '') %>
+</fieldset>
+
+<% [ 'cpu', 'memory' ].each do |resource_name| %>
+
+  <fieldset>
+    <legend><%= l("label_#{resource_name}_alert_mail".to_sym) %></legend>
+    <p>
+      <label><%= l(:label_alert_mail_upper_limit) %>:</label>
+      <%= select_tag "settings[#{resource_name}_alert_mail_upper_limit]",
+        options_for_select([[l(:label_user_mail_option_none), '']] +
+          (0..10).to_a.collect {|r| ["#{r*10} %", r*10] },
+          :selected => @settings["#{resource_name}_alert_mail_upper_limit".to_sym]) %>
+    </p>
+    <p>
+      <label>To:</label>
+      <%= l(:field_admin) %>
+    </p>
+    <p>
+      <label><%= l(:field_subject) %>:</label>
+      <%= text_field_tag "settings[#{resource_name}_alert_mail_subject]",
+        @settings["#{resource_name}_alert_mail_subject".to_sym],
+        :size => 80, :maxlength => 255 %>
+    </p>
+    <p>
+      <label><%= l(:field_description) %>:</label>
+      <%= text_area_tag "settings[#{resource_name}_alert_mail_body]",
+        @settings["#{resource_name}_alert_mail_body".to_sym],
+        :cols => 60, :rows => 10 %>
+    </p>
+  </fieldset>
+
+<% end %>

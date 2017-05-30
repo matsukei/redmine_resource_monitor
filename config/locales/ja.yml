@@ -1,0 +1,16 @@
+ja:
+  label_resource_monitor: サーバー状態
+  field_display_date: 表示日
+
+  label_cpu_alert_mail: CPUのアラートメール
+  label_memory_alert_mail: メモリのアラートメール
+  label_alert_mail_upper_limit: 使用率上限
+
+  label_visibled_resource_charts: グラフ表示設定
+
+  label_cpu_chart: CPU使用率(全体:%)
+  label_cpu_usage_chart: CPU使用率(Top5:%)
+  label_memory_chart: メモリ使用量(全体:MB)
+  label_memory_usage_chart: メモリ使用量(Top5:Bytes)
+  label_load_average_chart: システム負荷状況
+  label_server_user_chart: サーバログインユーザ数

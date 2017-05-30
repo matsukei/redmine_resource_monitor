@@ -1,0 +1,13 @@
+# Available resource monitor setting
+#
+# rakc: passenger only
+# resources:
+#   method: agent or cron
+#   interval_minutes: integer(only agent)
+#   timeout_seconds: integer(only agent)
+resource_monitor:
+  rakc: passenger
+  resoruces:
+    method: agent
+    interval_minutes: 15
+    timeout_seconds: 300

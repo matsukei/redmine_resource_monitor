@@ -1,0 +1,16 @@
+en:
+  label_resource_monitor: Server status
+  field_display_date: Display date
+
+  label_cpu_alert_mail: Alert mail of CPU
+  label_memory_alert_mail: Alert mail of memory
+  label_alert_mail_upper_limit: Upper utilization limit
+
+  label_visibled_resource_charts: Graph display setting
+
+  label_cpu_chart: CPU usage(%)
+  label_cpu_usage_chart: Top 5 of CPU usage(%)
+  label_memory_chart: Memory usage(MB)
+  label_memory_usage_chart: Top 5 of Memory usage(Bytes)
+  label_load_average_chart: Load average
+  label_server_user_chart: Logged in user of server
